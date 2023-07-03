@@ -6,6 +6,7 @@ export class FacebookAuthenticationService {
   constructor (private readonly loadFacebookUserApi: LoadFacebookUserApi) { }
   async perform (params: FacebookAuthentication.Params): Promise<FacebookAuthentication.Result> {
     await this.loadFacebookUserApi.loadUser(params)
+
     return new AuthenticationError()
   }
 }
